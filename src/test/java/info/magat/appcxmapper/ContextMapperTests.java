@@ -8,6 +8,8 @@ public class ContextMapperTests {
 
     @Test
     public void first_test() {
-        new ContextMapper().map(new AnnotationConfigApplicationContext(SimpleContextConfig.class));
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(SimpleContextConfig.class);
+
+        new ContextMapper().map(ctx);
     }
 }
