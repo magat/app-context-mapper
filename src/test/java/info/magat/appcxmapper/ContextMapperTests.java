@@ -1,6 +1,6 @@
 package info.magat.appcxmapper;
 
-import info.magat.appcxmapper.config.SimpleContextConfig;
+import info.magat.appcxmapper.test.config.SimpleContextConfig;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

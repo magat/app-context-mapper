@@ -3,18 +3,22 @@ package info.magat.appcxmapper;
 import org.springframework.context.ApplicationContext;
 import org.springframework.util.ReflectionUtils;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
 public class ContextMapper {
 
-    public void map(ApplicationContext ctx) {
+    public Map<String, Bean> map(ApplicationContext ctx) {
+        Map<String, Bean> result = new HashMap<>();
+
         // first algo prototype
         // list all defined beans
         var beans = ctx.getBeanDefinitionNames();
 
         for (String beanName : beans) {
 
+            // skip spring beans atm, might be interesting later
             if (beanName.startsWith("org.spring")) {
                 continue;
             }
@@ -40,11 +44,12 @@ public class ContextMapper {
                 if (foundInContext.isPresent()) {
                     System.out.println("Found dependency between " + beanName + " and a bean with class " + fieldClass);
                     // flag it in a map ??
+
                 }
             });
-
-
         }
+
+        return result;
     }
 
 
